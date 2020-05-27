@@ -1,6 +1,0 @@
-module Pods_SmallGroupManager {
-  umbrella header "Pods-SmallGroupManager-umbrella.h"
-
-  export *
-  module * { export * }
-}

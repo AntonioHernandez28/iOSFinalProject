@@ -7,15 +7,23 @@
 //
 
 import UIKit
+import Firebase
 
 class AlertasViewController: UIViewController {
 
-  
+  var listaConocidos = Conocido.defaultContacts()
+     var conocido : Conocido?
+     var ref : DatabaseReference!
+     var db : Firestore!
     @IBOutlet weak var btnSospecha: UIButton!
     @IBOutlet weak var btnCrimen: UIButton!
     @IBOutlet weak var btnMedico: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
+        let settings = FirestoreSettings()
+        Firestore.firestore().settings = settings
+        db = Firestore.firestore()
+        ref = Database.database().reference()
         title = "Alertas"
         // Do any additional setup after loading the view.
     }
@@ -24,6 +32,7 @@ class AlertasViewController: UIViewController {
         var type: String
         if(sender.isEqual(btnCrimen)){
             type = "Alerta Criminal"
+            let userEmail = Auth.auth().currentUser!.email
         }
         else{
             if(sender.isEqual(btnMedico)){
@@ -32,6 +41,16 @@ class AlertasViewController: UIViewController {
             else{
                 type = "Actividad Sospechosa"
             }
+        }
+        
+        func callPolice(alert: UIAlertAction!){
+            guard let number = URL(string: "tel://" + "911") else { return }
+            UIApplication.shared.open(number)
+        }
+        
+        func callAmbulance(alert: UIAlertAction!){
+            guard let number = URL(string: "tel://" + "611") else { return }
+            UIApplication.shared.open(number)
         }
         
         let alertOne = UIAlertController(title: "Confirme alerta", message: "Esta seguro de enviar una alerta de tipo \(type)?", preferredStyle: .alert)
@@ -57,6 +76,10 @@ class AlertasViewController: UIViewController {
                     
                     let alertTwo = UIAlertController(title: "\(type) en curso", message: "Presione el botón cancelar para terminar la alerta, de lo contrario continuará activa.", preferredStyle: .alert)
                     
+                    alertTwo.addAction(UIAlertAction(title: "Llamar a una ambulancia",
+                                                                    style: UIAlertAction.Style.default,
+                                   handler: callAmbulance))
+                    
                     alertTwo.addAction(UIAlertAction(title: "Cancelar", style: .cancel, handler: { action in
                         //Eliminar alerta
                     }))
@@ -75,6 +98,10 @@ class AlertasViewController: UIViewController {
                 alertTwo.addAction(UIAlertAction(title: "Cancelar", style: .cancel, handler: { action in
                     //Eliminar alerta
                 }))
+                
+                alertTwo.addAction(UIAlertAction(title: "Llamar a la policia",
+                                                 style: UIAlertAction.Style.default,
+                handler: callPolice))
                 
                 self.present(alertTwo, animated: true)
             }

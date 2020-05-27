@@ -8,12 +8,20 @@
 
 import UIKit
 import ContactsUI
+import Firebase
 
 class ContactosViewController: UITableViewController {
     var listaConocidos = Conocido.defaultContacts()
     var conocido : Conocido?
+    var ref : DatabaseReference!
+    var db : Firestore!
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tableView.rowHeight = 65.0
+        let settings = FirestoreSettings()
+        Firestore.firestore().settings = settings
+        db = Firestore.firestore()
+        ref = Database.database().reference()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -94,6 +102,14 @@ extension ContactosViewController: CNContactPickerDelegate {
         listaConocidos.append(conocido)
       }
     }
+    let userID = Auth.auth().currentUser!.uid
+    var conocidosMail = [String]()
+    for conocidos in listaConocidos {
+        conocidosMail.append(conocidos.workEmail)
+    }
+    print(conocidosMail)
+//    self.ref.child("usuarios").child(userID).setValue(["conocidosMail" : conocidosMail])
+    self.db.collection("usuarios").document(userID).setData([ "conocidosMail":  conocidosMail], merge: true)
     tableView.reloadData()
   }
 }

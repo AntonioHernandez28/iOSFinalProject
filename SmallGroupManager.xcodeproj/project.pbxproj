@@ -13,6 +13,7 @@
 		674A6FC524690BD300F16C14 /* Conocido.swift in Sources */ = {isa = PBXBuildFile; fileRef = 674A6FC424690BD300F16C14 /* Conocido.swift */; };
 		674A6FC9246910E600F16C14 /* ConocidoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 674A6FC8246910E600F16C14 /* ConocidoCell.swift */; };
 		674A6FCB246913E500F16C14 /* EditConocidoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 674A6FCA246913E500F16C14 /* EditConocidoTableViewController.swift */; };
+		67819D7B247DDF1300AD1B68 /* AlertasActivasTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67819D7A247DDF1300AD1B68 /* AlertasActivasTableViewController.swift */; };
 		A962C67D243E8E710043D805 /* ViewControllerProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = A962C67C243E8E710043D805 /* ViewControllerProfile.swift */; };
 		A970DD7C243C288600916324 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A970DD7B243C288600916324 /* User.swift */; };
 		A970DD7E243C654800916324 /* ViewControllerHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = A970DD7D243C654800916324 /* ViewControllerHome.swift */; };
@@ -36,6 +37,7 @@
 		674A6FC424690BD300F16C14 /* Conocido.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Conocido.swift; sourceTree = SOURCE_ROOT; };
 		674A6FC8246910E600F16C14 /* ConocidoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConocidoCell.swift; sourceTree = SOURCE_ROOT; };
 		674A6FCA246913E500F16C14 /* EditConocidoTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditConocidoTableViewController.swift; sourceTree = "<group>"; };
+		67819D7A247DDF1300AD1B68 /* AlertasActivasTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertasActivasTableViewController.swift; sourceTree = "<group>"; };
 		A95470AF243B29EA0038DC3F /* SmallGroupManager.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SmallGroupManager.entitlements; sourceTree = "<group>"; };
 		A962C67C243E8E710043D805 /* ViewControllerProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerProfile.swift; sourceTree = "<group>"; };
 		A970DD7B243C288600916324 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = SOURCE_ROOT; };
@@ -107,6 +109,7 @@
 				A9AB4D8E243B1880004F8EA8 /* SceneDelegate.swift */,
 				A9AB4D90243B1880004F8EA8 /* ViewController.swift */,
 				A9AB4D92243B1880004F8EA8 /* Main.storyboard */,
+				67819D7A247DDF1300AD1B68 /* AlertasActivasTableViewController.swift */,
 				674A6FBC2468F64200F16C14 /* Alerta.swift */,
 				674A6FBA2468E3C400F16C14 /* AlertasViewController.swift */,
 				A962C67C243E8E710043D805 /* ViewControllerProfile.swift */,
@@ -248,6 +251,7 @@
 				674A6FBB2468E3C400F16C14 /* AlertasViewController.swift in Sources */,
 				674A6FC124690AEE00F16C14 /* ContactosViewController.swift in Sources */,
 				A9AB4D91243B1880004F8EA8 /* ViewController.swift in Sources */,
+				67819D7B247DDF1300AD1B68 /* AlertasActivasTableViewController.swift in Sources */,
 				A9AB4D8D243B1880004F8EA8 /* AppDelegate.swift in Sources */,
 				A9AB4D8F243B1880004F8EA8 /* SceneDelegate.swift in Sources */,
 				A970DD7E243C654800916324 /* ViewControllerHome.swift in Sources */,

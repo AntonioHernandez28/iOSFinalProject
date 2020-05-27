@@ -20,7 +20,7 @@ class ViewControllerProfile: UIViewController,UIPickerViewDelegate, UIPickerView
     
     @IBOutlet weak var picker: UIPickerView!
     var currentId : String!
-    var UserCurr: User = User(id: "", nombre: "", ap: "", youth: "")
+    var UserCurr: User = User(id: "", nombre: "", ap: "", email: "", youth: "")
     
     @IBOutlet weak var nameField: UITextField!
     
@@ -52,18 +52,21 @@ class ViewControllerProfile: UIViewController,UIPickerViewDelegate, UIPickerView
     
     
     @IBAction func guardarButton(_ sender: UIButton) {
+        let userEmail = Auth.auth().currentUser?.email
         let db = Firestore.firestore()
         let indexSelected = picker.selectedRow(inComponent: 0)
         print("Llego aki")
         self.UserCurr.userID = self.currentId!
         self.UserCurr.Nombre = self.nameField.text!
         self.UserCurr.Apellido = self.ApellidoField.text!
+        self.UserCurr.email = userEmail!
         self.UserCurr.Yth = self.arrayYouths[indexSelected]
         print("Youth: " + self.UserCurr.Yth)
         db.collection("usuarios").document(currentId!).setData([
             "Nombre" : nameField.text!,
             "Apellido" : ApellidoField.text!,
-            "Youth" : arrayYouths[indexSelected]
+            "Youth" : arrayYouths[indexSelected],
+            "Email" : UserCurr.email
         ]) { err in
             if let err = err {
                 print("Error writing document: \(err)")
@@ -75,10 +78,7 @@ class ViewControllerProfile: UIViewController,UIPickerViewDelegate, UIPickerView
         
     }
     
-
-    
     // MARK: - Navigation
-
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
@@ -90,6 +90,4 @@ class ViewControllerProfile: UIViewController,UIPickerViewDelegate, UIPickerView
         print("entro al prepare")
         
     }
-
-
 }

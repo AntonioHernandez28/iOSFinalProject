@@ -18,7 +18,7 @@ class ViewController: UIViewController {
     var currID: String!
 
     @IBOutlet weak var loginButton: UIButton!
-    var CurrentUser = User(id: "", nombre: "", ap: "", youth: "")
+    var CurrentUser = User(id: "", nombre: "", ap: "", email: "", youth: "")
     var ref:DatabaseReference = Database.database().reference() //this will give you a ref for database
     
 
